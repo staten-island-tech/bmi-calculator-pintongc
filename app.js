@@ -26,9 +26,9 @@ console.log("BMI:", bmi);
 function evaluateBMI(bmi) {
 if (bmi < 18.5) {
     console.log(user.name,", you are underweight.");
-  } else if  (18.5< bmi < 25) {
+  } else if  (bmi >= 18.5 && bmi < 24.9) {
     console.log(user.name,", you are healthy weight.");
-  } else {
+  } else { 
     console.log(user.name,", you are overweight.");
   }
 }
