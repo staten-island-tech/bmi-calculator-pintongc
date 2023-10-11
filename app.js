@@ -1,21 +1,36 @@
-const a = prompt("Please enter your name.");
-const e = prompt("Please enter your height(cm)", "0");
-const f = prompt("Please enter your weight(kg)", "0");
+function getUserInfo() {
+  const name = prompt("Please enter your name.");
+  const height = prompt("Please enter your height(cm)", "0");
+  const weight = prompt("Please enter your weight(kg)", "0");
 
-const c = e * e;
-const b = f/c;
-const bmi = Math.round((b * 10000) * 10)/10;
-
-function computeBMI() {
-    
+  return {
+    name,
+    height,
+    weight,
+  };
 }
+
+const user = getUserInfo();
+
+function computeBMI(user) {
+  const c = user.height * user.height;
+  const b = user.weight / c;
+  const bmi = Math.round((b * 10000) * 10) / 10;
+  return bmi;
+}
+
+const bmi = computeBMI(user);
 
 console.log("BMI:", bmi);
 
-if (bmi < 10) {
-    console.log(a,", you are underweight.");
+function evaluateBMI(bmi) {
+if (bmi < 18.5) {
+    console.log(user.name,", you are underweight.");
   } else if  (18.5< bmi < 25) {
-    console.log(a,", you are healthy weight.");
+    console.log(user.name,", you are healthy weight.");
   } else {
-    console.log(a,", you are overweight.");
+    console.log(user.name,", you are overweight.");
   }
+}
+
+const evaluation = evaluateBMI(bmi);
